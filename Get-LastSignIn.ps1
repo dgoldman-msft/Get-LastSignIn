@@ -16,7 +16,7 @@
             Subfolder Name
 
         .EXAMPLE
-             PS C:\New-LoggingDirectory
+            PS C:\New-LoggingDirectory -SubFolder SubFolderName
 
         .NOTES
             Internal function
@@ -198,7 +198,6 @@ function Get-LastSignIn {
         [System.Collections.ArrayList]$userList = @()
         $modules = @("Microsoft.Graph.Authentication", "Microsoft.Graph.Reports")
         $successful = $false
-        $saveAsJson = $false
     }
 
     process {
