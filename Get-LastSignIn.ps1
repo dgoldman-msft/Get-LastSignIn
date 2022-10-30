@@ -128,12 +128,12 @@ function Get-LastSignIn {
             Retrieves Azure AD Sign-in logs from a commercial endpoint
 
         .EXAMPLE
-            PS C:\Get-LastSignIn -ResourceType -SaveResultsToCSV
+            PS C:\Get-LastSignIn -ResourceType signInActivity -SaveResultsToCSV
 
             Retrieves Azure AD Sign-in logs and saves them in csv format
 
         .EXAMPLE
-            PS C:\Get-LastSignIn -ResourceType -SaveResultsToJSON
+            PS C:\Get-LastSignIn -ResourceType signInActivity -SaveResultsToJSON
 
             Retrieves Azure AD Sign-in logs and saves them in json format
 
@@ -206,8 +206,14 @@ function Get-LastSignIn {
             return
         }
 
-        # Create root directory
-        New-LoggingDirectory -LoggingPath $LoggingPath
+        try {
+            # Create root directory
+            New-LoggingDirectory -LoggingPath $LoggingPath
+        }
+        catch {
+            Write-Output "Error: $_"
+            return
+        }
 
         try {
             foreach ($module in $modules) {
