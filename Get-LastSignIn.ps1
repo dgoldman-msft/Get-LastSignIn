@@ -206,8 +206,14 @@ function Get-LastSignIn {
             return
         }
 
-        # Create root directory
-        New-LoggingDirectory -LoggingPath $LoggingPath
+        try {
+            # Create root directory
+            New-LoggingDirectory -LoggingPath $LoggingPath
+        }
+        catch {
+            Write-Output "Error: $_"
+            return
+        }
 
         try {
             foreach ($module in $modules) {

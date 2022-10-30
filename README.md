@@ -11,6 +11,8 @@ Running this script you agree to install Microsoft.Graph PowerShell modules and 
 
 Connect using Graph API (Beta) and export Azure Sign-in logs.
 
+### Examples
+
 - EXAMPLE 1: PS C:\Get-LastSignIn
 
     Retrieves Azure AD Sign-in logs
